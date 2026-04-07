@@ -1,0 +1,98 @@
+---
+import homePhoto from "@/assets/urielrc.webp";
+import {
+    GitHubLogo,
+    GmailLogo,
+    LinkedInLogo,
+    WhatsAppLogo,
+} from "@/components/icons";
+
+const socialItem = [
+    {
+        href: "https://github.com/rocouv",
+        ariaLabel: "Visit GitHub profile: rocouv",
+        icon: GitHubLogo,
+        target: "_blank",
+        id: "btnGH",
+    },
+    {
+        href: "https://www.linkedin.com/in/ourc",
+        ariaLabel: "Visit LinkedIn profile: ourc",
+        icon: LinkedInLogo,
+        target: "_blank",
+        id: "btnLI",
+    },
+    {
+        href: "https://wa.me/5218343080544?text=Hola%20Uriel,%20me%20gustaria%20contactarte%20para%20una%20oportunidad%20laboral",
+        ariaLabel: "Send WhatsApp message to Uriel",
+        icon: WhatsAppLogo,
+        target: "_blank",
+        id: "btnWA",
+    },
+    {
+        href: "mailto:rocouv@gmail.com?subject=Contact%20from%20portfolio",
+        ariaLabel: "Send email to rocouv@gmail.com",
+        icon: GmailLogo,
+        id: "btnE",
+    },
+];
+---
+
+<section id="home" class="mt-5 w-full px-5 py-8 md:px-10">
+    <div
+        class="mx-auto flex max-w-6xl flex-col items-center gap-12 md:flex-row md:items-center md:justify-between"
+    >
+        <div class="flex flex-col items-center justify-center gap-4">
+            <img
+                src={homePhoto.src}
+                alt="Uriel RC personal photo"
+                class="h-50 w-50 rounded-full border-12 border-babyblueice bg-sapphiresky object-contain dark:border-smartblue dark:bg-sapphiresky"
+            />
+
+            <ul class="flex flex-row gap-2">
+                {
+                    socialItem.map((item) => {
+                        const Icon = item.icon;
+
+                        return (
+                            <li>
+                                <a
+                                    id={item.id}
+                                    href={item.href}
+                                    aria-label={item.ariaLabel}
+                                    target={item.target}
+                                    rel={
+                                        item.target === "_blank"
+                                            ? "noopener noreferrer"
+                                            : undefined
+                                    }
+                                    class="flex h-10 w-10 items-center justify-center rounded-full bg-babyblueice text-inkblack transition duration-300 ease-in-out hover:scale-110 hover:bg-azureblue dark:bg-smartblue dark:hover:bg-coolsteel"
+                                >
+                                    <Icon class="h-5 w-5" />
+                                </a>
+                            </li>
+                        );
+                    })
+                }
+            </ul>
+        </div>
+
+        <div
+            class="flex max-w-2xl flex-col gap-5 text-balance text-base font-thin"
+        >
+            <p class="text-xl font-bold text-inkblack dark:text-aliceblue">
+                Hi there! 👋🏾 I'm Uriel Roman
+            </p>
+
+            <p class="font-light text-inkblack dark:text-aliceblue/85">
+                Software developer with +3 years of experience creating and
+                designing user interfaces.
+            </p>
+
+            <p class="font-light text-inkblack dark:text-aliceblue/85">
+                Autodidact with strong interest in learning and working with new
+                technologies.
+            </p>
+        </div>
+    </div>
+</section>

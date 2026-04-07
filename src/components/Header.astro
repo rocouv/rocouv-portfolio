@@ -1,0 +1,42 @@
+---
+import RocouLogo from "./icons/RocouLogo.astro";
+
+const menuItem = [
+    { href: "/#home", name: "Home" },
+    { href: "/#experience", name: "Experience" },
+    { href: "/#projects", name: "Projects" },
+    { href: "/#about", name: "About" },
+    /*{ href: "/#contact", name: "Contact" },*/
+];
+---
+
+<header
+    class="fixed top-0 z-50 flex h-14 w-full items-center justify-around bg-aliceblue dark:bg-steelblue drop-shadow-xs font-light"
+>
+    <RocouLogo />
+
+    <nav class="flex items-center justify-center gap-10 text-md md:text-xl">
+        <ul class="flex justify-between gap-3">
+            {
+                menuItem.map((item) => (
+                    <li>
+                        <a
+                            href={item.href}
+                            class="relative inline-block leading-none text-inkblack/50 transition-colors duration-300 ease-in-out hover:text-inkblack after:absolute after:left-0 after:-bottom-px after:h-0.5 after:w-0 after:bg-steelblue after:transition-[width] after:duration-300 after:ease-in-out hover:after:w-full dark:text-aliceblue/50 dark:hover:text-aliceblue dark:after:bg-wisteriablue"
+                        >
+                            {item.name}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+
+        <a
+            class="flex h-8 w-28 items-center justify-center rounded-full bg-babyblueice px-2 py-1 text-md transition duration-500 ease-in-out delay-150 hover:bg-azureblue md:text-base dark:bg-smartblue dark:hover:bg-coolsteel"
+            target="_blank"
+            href="https://drive.google.com/file/d/1NepFo44qdZ6tWWC3bxx_D6abfwCaSlpN/view?usp=sharing"
+        >
+            Download CV
+        </a>
+    </nav>
+</header>

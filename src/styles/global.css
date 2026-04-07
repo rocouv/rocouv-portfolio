@@ -1,0 +1,30 @@
+@import "@fontsource-variable/league-spartan";
+
+
+@import "tailwindcss";
+
+
+@theme {
+    /* bg dark */
+    --color-inkblack: #0D1117;
+    /* bg light */
+    --color-aliceblue: #E6EDF3;
+    /* light: hover | dark: links */
+    --color-steelblue: #1E4987;
+    /* light: links | dark: none */
+    --color-babyblueice: #8BB7F5;
+    /* light: secondary | dark: hover */
+    --color-smartblue: #556F93;
+    /* light: none | dark: secondary */
+    --color-wisteriablue: #829BBD;
+    /* light: primary | dark: primary */
+    --color-azureblue: #2F81F7;
+    /* light: | dark: */
+    --color-balticblue: #3A5C8D;
+    /* light: | dark: */
+    --color-sapphiresky: #4278C5;
+    /* light: | dark: */
+    --color-coolsteel: #90A5C0;
+    /* custom font */
+    --font-leaguespartan: "League Spartan Variable", sans-serif;
+}

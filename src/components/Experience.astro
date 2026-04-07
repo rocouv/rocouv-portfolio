@@ -1,0 +1,142 @@
+---
+import {
+    BootstrapLogo,
+    CSharpLogo,
+    JQueryLogo,
+    JSLogo,
+    LaravelLogo,
+    MySQLLogo,
+    NETLogo,
+    PHPLogo,
+    SQLServerLogo,
+} from "./icons";
+
+const experience = [
+    {
+        company: "Alitec",
+        role: "Junior Web Developer",
+        period: "May 2024 - Current",
+        technologies: [
+            { name: "C#", logo: CSharpLogo },
+            { name: ".NET", logo: NETLogo },
+            { name: "JQuery", logo: JQueryLogo },
+            { name: "JavaScript", logo: JSLogo },
+            { name: "Bootstrap", logo: BootstrapLogo },
+            { name: "SQL Server", logo: SQLServerLogo },
+        ],
+        responsibilities: [
+            "Participated in the migration of legacy system in Visual FoxPro to modern web environments.",
+            "Developed an ERP web query module integrating data visualization and reports with Highcharts and Crystal Reports.",
+            "Improved the implementation of commercial records and policy documents.",
+            "Contributed to the development and maintenance of accounting and commercial modules, managing payments, receipts and financial information.",
+        ],
+    },
+    {
+        company: "Softseti",
+        role: "Web Developer Internship",
+        period: "August 2023 - November 2023",
+        technologies: [
+            { name: "PHP", logo: PHPLogo },
+            { name: "Laravel", logo: LaravelLogo },
+            { name: "JavaScript", logo: JSLogo },
+            { name: "JQuery", logo: JQueryLogo },
+            { name: "MySQL", logo: MySQLLogo },
+        ],
+        responsibilities: [
+            "Collaborated on the migration of a POS system module transferring it from CodeIgniter to modern architecture based on Laravel and Angular.",
+            "Participated in the development of a plugin for a web-based assestment platform, enabling audio playback during listening comprehension exams for English language learners.",
+        ],
+    },
+    {
+        company: "ITIFE",
+        role: "Administrative Assistant/Software Developer",
+        period: "January 2022 - October 2022",
+        technologies: [
+            { name: "PHP", logo: PHPLogo },
+            { name: "JavaScript", logo: JSLogo },
+            { name: "Bootstrap", logo: BootstrapLogo },
+            { name: "SQL Server", logo: SQLServerLogo },
+        ],
+        responsibilities: [
+            "Supported the legal department in reviewing and organizing construction files, analyzing documentation, identifying critical issues and participating in the initial digitization process.",
+            "Collaborated in the development of web modules to automate the sending of invoices and payments receipts.",
+            "Provided first-level technical support, handling hardware and software incidents, VoIP telephony and preventive maintenance of computer equipment.",
+        ],
+    },
+];
+---
+
+<section id="experience" class="w-full px-5 py-14 md:px-10">
+    <div class="mx-auto max-w-6xl">
+        <h3 class="text-4xl font-bold md:text-5xl">
+            <span
+                class="bg-linear-to-r from-azureblue to-steelblue bg-clip-text text-transparent"
+            >
+                Experience
+            </span>
+        </h3>
+
+        <div class="relative mt-10">
+            <div
+                class="absolute left-3 top-0 h-full w-0.5 bg-steelblue/35 md:left-1/2 md:-translate-x-1/2"
+            >
+            </div>
+
+            <div class="flex flex-col gap-12 md:gap-16">
+                {
+                    experience.map((item) => (
+                        <article class="relative pl-12 md:grid md:grid-cols-[1fr_80px_1fr] md:items-start md:pl-0">
+                            <div class="absolute left-0 top-1 h-6 w-6 rounded-full border-4 border-babyblueice bg-sapphiresky shadow-sm md:left-1/2 md:-translate-x-1/2 dark:bg-sapphiresky dark:border-babyblueice" />
+
+                            <div class="md:pr-10 md:text-right">
+                                <h4 class="mt-1 text-2xl font-bold text-inkblack md:text-3xl dark:text-aliceblue">
+                                    {item.company}
+                                </h4>
+                                <p class="text-lg font-semibold text-sapphiresky md:text-xl dark:text-balticblue">
+                                    {item.period}
+                                </p>
+                            </div>
+
+                            <div class="hidden md:block" />
+
+                            <div class="mt-4 md:mt-0 md:pl-10">
+                                <h5 class="text-2xl font-bold text-inkblack md:text-3xl dark:text-aliceblue">
+                                    {item.role}
+                                </h5>
+
+                                <div class="mt-4">
+                                    <p class="text-xl font-semibold text-inkblack md:text-2xl dark:text-aliceblue">
+                                        Responsibilities:
+                                    </p>
+
+                                    <ul class="mt-3 list-disc space-y-2 pl-5 text-base text-inkblack/80 md:text-lg dark:text-aliceblue/80">
+                                        {item.responsibilities.map((r) => (
+                                            <li>{r}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <p class="mt-5 text-xl text-inkblack md:text-2xl dark:text-aliceblue">
+                                    Technologies Stack:
+                                </p>
+
+                                <div class="mt-4 flex flex-wrap gap-3">
+                                    {item.technologies.map((tech) => {
+                                        const Logo = tech.logo;
+
+                                        return (
+                                            <span class="inline-flex items-center gap-2 rounded-full bg-babyblueice px-4 py-2 text-sm font-medium text-inkblack hover:scale-110 hover:transition hover:duration-500 md:text-base dark:bg-smartblue dark:text-aliceblue">
+                                                <Logo class="h-5 w-5 shrink-0" />
+                                                {tech.name}
+                                            </span>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        </article>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>

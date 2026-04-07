@@ -1,0 +1,51 @@
+---
+const education = [
+    {
+        period: "September 2016 - August 2020",
+        degree: "Bachelor of Information Technologies",
+        institution: "Universidad Politécnica de Victoria",
+    },
+    {
+        period: "August 2013 - August 2016",
+        degree: "Programming Technician",
+        institution:
+            "Centro de Bachillerato Tecnológico Industrial y de Servicios No. 271",
+    },
+];
+---
+
+<section id="education" class="w-full px-5 py-5">
+    <div class="mx-auto max-w-6xl">
+        <h3 class="text-4xl font-bold md:text-3xl">
+            <span
+                class="bg-linear-to-r from-azureblue to-steelblue bg-clip-text text-transparent"
+            >
+                Education
+            </span>
+        </h3>
+
+        <div class="mt-8 flex flex-col gap-8">
+            {
+                education.map((item) => (
+                    <article class="flex gap-4">
+                        <div class="pt-2">
+                            <span class="block h-4 w-4 rounded-full bg-sapphiresky dark:bg-babyblueice" />
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <p class="text-base text-inkblack dark:text-aliceblue">
+                                {item.period}
+                            </p>
+                            <h4 class="text-base font-black text-inkblack dark:text-aliceblue">
+                                {item.degree}
+                            </h4>
+                            <p class="text-base font-thin text-inkblack dark:text-aliceblue">
+                                {item.institution}
+                            </p>
+                        </div>
+                    </article>
+                ))
+            }
+        </div>
+    </div>
+</section>

@@ -1,0 +1,167 @@
+---
+import {
+    AstroLogo,
+    BootstrapLogo,
+    BunLogo,
+    ChartJSLogo,
+    CSharpLogo,
+    FigmaLogo,
+    GitHubLogo,
+    GitLogo,
+    JestLogo,
+    JSLogo,
+    LaravelLogo,
+    MySQLLogo,
+    NETLogo,
+    NodeJSLogo,
+    PhotoshopLogo,
+    PHPLogo,
+    PNPMLogo,
+    PostmanLogo,
+    ReactLogo,
+    SQLServerLogo,
+    SupabaseLogo,
+    TailwindCSSLogo,
+    TSLogo,
+    ViteLogo,
+    VitestLogo,
+} from "@/components/icons";
+
+const technologies = [
+    {
+        name: "JavaScript",
+        icon: JSLogo,
+    },
+    {
+        name: "NodeJS",
+        icon: NodeJSLogo,
+    },
+    {
+        name: "TypeScript",
+        icon: TSLogo,
+    },
+    {
+        name: "ReactJS",
+        icon: ReactLogo,
+    },
+    {
+        name: "AstroJS",
+        icon: AstroLogo,
+    },
+    {
+        name: "TailwindCSS",
+        icon: TailwindCSSLogo,
+    },
+    {
+        name: "Bootstrap",
+        icon: BootstrapLogo,
+    },
+    {
+        name: "C#",
+        icon: CSharpLogo,
+    },
+    {
+        name: ".NET",
+        icon: NETLogo,
+    },
+    {
+        name: "PHP",
+        icon: PHPLogo,
+    },
+    {
+        name: "Laravel",
+        icon: LaravelLogo,
+    },
+    {
+        name: "Git",
+        icon: GitLogo,
+    },
+    {
+        name: "GitHub",
+        icon: GitHubLogo,
+    },
+    {
+        name: "MySQL",
+        icon: MySQLLogo,
+    },
+    {
+        name: "SQL Server",
+        icon: SQLServerLogo,
+    },
+    {
+        name: "Supabase",
+        icon: SupabaseLogo,
+    },
+    {
+        name: "Chart.js",
+        icon: ChartJSLogo,
+    },
+    {
+        name: "Figma",
+        icon: FigmaLogo,
+    },
+    {
+        name: "Adobe Photoshop",
+        icon: PhotoshopLogo,
+    },
+    {
+        name: "PNPM",
+        icon: PNPMLogo,
+    },
+    {
+        name: "Postman",
+        icon: PostmanLogo,
+    },
+    {
+        name: "Vite",
+        icon: ViteLogo,
+    },
+    {
+        name: "Jest",
+        icon: JestLogo,
+    },
+    {
+        name: "Vitest",
+        icon: VitestLogo,
+    },
+    {
+        name: "Bun",
+        icon: BunLogo,
+    },
+];
+
+const marqueeItems = [...technologies, ...technologies];
+---
+
+<section
+    class="w-full overflow-hidden border-y border-aliceblue/10 bg-linear-to-r from-azureblue to-steelblue dark:from-steelblue dark:to-balticblue py-3 mt-5"
+>
+    <div class="marquee-track flex w-max items-center gap-16">
+        {
+            marqueeItems.map((tech) => {
+                const Icon = tech.icon;
+                return (
+                    <div class="flex flex-row gap-2 items-center justify-center shrink-0 text-sm font-medium tracking-[0.18em] text-aliceblue/70 dark:text-aliceblue/70 uppercase">
+                        {Icon && <Icon class="w-8 h-8" />}
+                        {tech.name}
+                    </div>
+                );
+            })
+        }
+    </div>
+</section>
+
+<style>
+    .marquee-track {
+        animation: marquee-left 60s linear infinite;
+    }
+
+    @keyframes marquee-left {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-50%);
+        }
+    }
+</style>
