@@ -1,19 +1,53 @@
 ---
 import PoEProject from "@/assets/136shots_so.webp";
 import ChefcitoLP from "@/assets/640shots_so.webp";
-import WeatherApp from "@/assets/988shots_so.webp";
+import EntiaCMS from "@/assets/487_1x_shots_so.png";
+import RoadToDoomsday from "@/assets/828shots_so.png";
 import {
     AstroLogo,
     ChartJSLogo,
     CSSLogo,
     HTMLLogo,
     JSLogo,
+    LaravelLogo,
+    PHPLogo,
+    ReactLogo,
+    ResendLogo,
     TailwindCSSLogo,
     ViteLogo,
-    VueLogo,
 } from "@/components/icons";
 
 const projects = [
+    {
+        name: "Entia CMS",
+        description:
+            "A lightweight Laravel CMS for building custom, self-managed websites with a protected dashboard.",
+        technologies: [
+            { name: "PHP", logo: PHPLogo },
+            { name: "Laravel", logo: LaravelLogo },
+            { name: "TailwindCSS", logo: TailwindCSSLogo },
+            { name: "Resend", logo: ResendLogo },
+        ],
+        links: [
+            { name: "Repo", link: "https://github.com/rocouv/entia-cms" },
+            { name: "Demo", link: "https://vectormx.up.railway.app/" },
+        ],
+        image: EntiaCMS.src,
+    },
+    {
+        name: "Road to Doomsday",
+        description:
+            "An interactive Marvel timeline tracker with filters, progress persistence and TMDB posters.",
+        technologies: [
+            { name: "AstroJS", logo: AstroLogo },
+            { name: "React", logo: ReactLogo },
+        ],
+        links: [
+            { name: "Repo", link: "https://github.com/rocouv/mcu-timeline" },
+            { name: "Demo", link: "https://roadto-avengersdoomsday.netlify.app/" },
+        ],
+        image: RoadToDoomsday.src,
+    },
     {
         name: "Path of Exile - Build Selector",
         description:
@@ -47,22 +81,6 @@ const projects = [
             { name: "Demo", link: "https://chefcitogourmetlp.netlify.app/" },
         ],
         image: ChefcitoLP.src,
-    },
-    {
-        name: "Weather App",
-        description:
-            "Web app for seeing the weather forecast in a specific city.",
-        technologies: [
-            { name: "ViteJS", logo: ViteLogo },
-            { name: "VueJS", logo: VueLogo },
-            { name: "TailwindCSS", logo: TailwindCSSLogo },
-            { name: "CSS", logo: CSSLogo },
-        ],
-        links: [
-            { name: "Repo", link: "https://github.com/rocouv/weather-app" },
-            { name: "Demo", link: "https://uroweatherapp.netlify.app/" },
-        ],
-        image: WeatherApp.src,
     },
 ];
 ---
@@ -114,7 +132,7 @@ const projects = [
 
                                     return (
                                         <span class="inline-flex items-center gap-2 rounded-full border border-steelblue/15 bg-babyblueice/45 px-3 py-1 text-xs font-medium text-inkblack lg:px-4 lg:py-2 lg:text-sm dark:border-aliceblue/10 dark:bg-coolsteel/30 dark:text-aliceblue">
-                                            <Logo class="h-4 w-4 shrink-0 lg:h-5 lg:w-5" />
+                                            {Logo && <Logo class="h-4 w-4 shrink-0 lg:h-5 lg:w-5" />}
                                             {tech.name}
                                         </span>
                                     );

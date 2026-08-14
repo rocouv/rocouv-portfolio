@@ -23,6 +23,7 @@ export { default as PHPLogo } from "./PHPLogo.astro";
 export { default as PNPMLogo } from "./PNPMLogo.astro";
 export { default as PostmanLogo } from "./PostmanLogo.astro";
 export { default as ReactLogo } from "./ReactLogo.astro";
+export { default as ResendLogo } from "./ResendLogo.astro";
 export { default as RocouLogo } from "./RocouLogo.astro";
 export { default as SQLServerLogo } from "./SQLServerLogo.astro";
 export { default as SupabaseLogo } from "./SupabaseLogo.astro";
@@ -32,4 +33,3 @@ export { default as ViteLogo } from "./ViteLogo.astro";
 export { default as VitestLogo } from "./VitestLogo.astro";
 export { default as VueLogo } from "./VueLogo.astro";
 export { default as WhatsAppLogo } from "./WhatsAppLogo.astro";
-
