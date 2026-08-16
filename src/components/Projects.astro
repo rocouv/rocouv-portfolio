@@ -6,6 +6,7 @@ import RoadToDoomsday from "@/assets/828shots_so.png";
 import TIOrienta from "@/assets/403shots_so.png";
 import {
     AstroLogo,
+    BunLogo,
     ChartJSLogo,
     CSSLogo,
     HTMLLogo,
@@ -15,10 +16,30 @@ import {
     ReactLogo,
     ResendLogo,
     TailwindCSSLogo,
+    TSLogo,
     ViteLogo,
+    VitestLogo,
 } from "@/components/icons";
 
 const projects = [
+    {
+        name: "TI Orienta",
+        description:
+            "A vocational assessment that helps people discover technology learning paths aligned with their interests.",
+        technologies: [
+            { name: "AstroJS", logo: AstroLogo },
+            { name: "TailwindCSS", logo: TailwindCSSLogo },
+            { name: "TypeScript", logo: TSLogo },
+            { name: "ViteJS", logo: ViteLogo },
+            { name: "Vitest", logo: VitestLogo },
+            { name: "Bun", logo: BunLogo },
+        ],
+        links: [
+            { name: "Repo", link: "https://github.com/rocouv/TIOrienta" },
+            { name: "Demo", link: "https://tiorienta.netlify.app/" },
+        ],
+        image: TIOrienta.src,
+    },
     {
         name: "Entia CMS",
         description:
@@ -82,14 +103,6 @@ const projects = [
             { name: "Demo", link: "https://chefcitogourmetlp.netlify.app/" },
         ],
         image: ChefcitoLP.src,
-    },
-    {
-        name: "TI Orienta",
-        description:
-            "A vocational assessment that helps people discover technology learning paths aligned with their interests.",
-        technologies: [],
-        links: [{ name: "Demo", link: "https://tiorienta.netlify.app/" }],
-        image: TIOrienta.src,
     },
 ];
 ---
