@@ -4,17 +4,23 @@ import ChefcitoLP from "@/assets/640shots_so.webp";
 import EntiaCMS from "@/assets/487_1x_shots_so.png";
 import RoadToDoomsday from "@/assets/828shots_so.png";
 import TIOrienta from "@/assets/403shots_so.png";
+import FinanceProject from "@/assets/189shots_so.webp";
 import {
+    AWSLambdaLogo,
     AstroLogo,
     BunLogo,
     ChartJSLogo,
     CSSLogo,
+    ExpoLogo,
+    FastAPILogo,
     HTMLLogo,
     JSLogo,
     LaravelLogo,
     PHPLogo,
+    PythonLogo,
     ReactLogo,
     ResendLogo,
+    SupabaseLogo,
     TailwindCSSLogo,
     TSLogo,
     ViteLogo,
@@ -23,9 +29,26 @@ import {
 
 const projects = [
     {
+        name: "Financé",
+        description: "A personal finance app for managing expenses and making better financial decisions across web and mobile.",
+        descriptionKey: "projects.finance.description",
+        technologies: [
+            { name: "Python", logo: PythonLogo },
+            { name: "FastAPI", logo: FastAPILogo },
+            { name: "Expo", logo: ExpoLogo },
+            { name: "React Native", logo: ReactLogo },
+            { name: "Supabase", logo: SupabaseLogo },
+            { name: "AWS Lambda", logo: AWSLambdaLogo },
+            { name: "TypeScript", logo: TSLogo },
+        ],
+        links: [{ name: "Repo", link: "https://github.com/rocouv/finance" }],
+        image: FinanceProject.src,
+    },
+    {
         name: "TI Orienta",
         description:
             "A vocational assessment that helps people discover technology learning paths aligned with their interests.",
+        descriptionKey: "projects.tiOrienta.description",
         technologies: [
             { name: "AstroJS", logo: AstroLogo },
             { name: "TailwindCSS", logo: TailwindCSSLogo },
@@ -44,6 +67,7 @@ const projects = [
         name: "Entia CMS",
         description:
             "A lightweight Laravel CMS for building custom, self-managed websites with a protected dashboard.",
+        descriptionKey: "projects.entia.description",
         technologies: [
             { name: "PHP", logo: PHPLogo },
             { name: "Laravel", logo: LaravelLogo },
@@ -61,6 +85,7 @@ const projects = [
         name: "Road to Doomsday",
         description:
             "An interactive Marvel timeline tracker with filters, progress persistence and TMDB posters.",
+        descriptionKey: "projects.doomsday.description",
         technologies: [
             { name: "AstroJS", logo: AstroLogo },
             { name: "React", logo: ReactLogo },
@@ -78,6 +103,7 @@ const projects = [
         name: "Path of Exile - Build Selector",
         description:
             "Tool for choosing your starter build in the ARPG game Path of Exile from Grinding Gear Games.",
+        descriptionKey: "projects.poe.description",
         technologies: [
             { name: "HTML", logo: HTMLLogo },
             { name: "JavaScript", logo: JSLogo },
@@ -94,6 +120,7 @@ const projects = [
     {
         name: "Chefcito Gourmet - Landing Page",
         description: "Landing page for a local fast food restaurant.",
+        descriptionKey: "projects.chefcito.description",
         technologies: [
             { name: "AstroJS", logo: AstroLogo },
             { name: "ViteJS", logo: ViteLogo },
@@ -120,7 +147,7 @@ const projects = [
             <span
                 class="bg-linear-to-r from-azureblue to-steelblue bg-clip-text text-transparent"
             >
-                Projects
+                <span data-i18n="projects.title">Projects</span>
             </span>
         </h3>
 
@@ -152,7 +179,7 @@ const projects = [
                             </div>
 
                             <p class="mt-3 text-sm leading-relaxed text-inkblack/75 sm:text-base lg:text-lg dark:text-aliceblue/80">
-                                {project.description}
+                                <span data-i18n={project.descriptionKey}>{project.description}</span>
                             </p>
 
                             <div class="mt-4 flex flex-wrap gap-2">
@@ -174,7 +201,7 @@ const projects = [
                                         href={link.link}
                                         class="inline-flex items-center justify-center rounded-full bg-babyblueice px-4 py-2 text-sm font-semibold text-inkblack transition duration-300 ease-in-out hover:scale-105 hover:bg-steelblue lg:px-5 lg:py-2.5 lg:text-base dark:bg-smartblue dark:text-aliceblue dark:hover:bg-coolsteel"
                                     >
-                                        {link.name}
+                                        <span data-i18n={link.name === "Repo" ? "projects.repo" : "projects.demo"}>{link.name}</span>
                                     </a>
                                 ))}
                             </div>
