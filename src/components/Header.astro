@@ -2,10 +2,10 @@
 import RocouLogo from "./icons/RocouLogo.astro";
 
 const menuItem = [
-    { href: "/#home", name: "Home" },
-    { href: "/#experience", name: "Experience" },
-    { href: "/#projects", name: "Projects" },
-    { href: "/#about", name: "About" },
+    { href: "/#home", name: "Home", translationKey: "nav.home" },
+    { href: "/#experience", name: "Experience", translationKey: "nav.experience" },
+    { href: "/#projects", name: "Projects", translationKey: "nav.projects" },
+    { href: "/#about", name: "About", translationKey: "nav.about" },
     /*{ href: "/#contact", name: "Contact" },*/
 ];
 ---
@@ -24,13 +24,33 @@ const menuItem = [
                             href={item.href}
                             class="relative inline-block leading-none text-inkblack/50 transition-colors duration-300 ease-in-out hover:text-inkblack after:absolute after:left-0 after:-bottom-px after:h-0.5 after:w-0 after:bg-steelblue after:transition-[width] after:duration-300 after:ease-in-out hover:after:w-full dark:text-aliceblue/50 dark:hover:text-aliceblue dark:after:bg-wisteriablue"
                         >
-                            {item.name}
+                            <span data-i18n={item.translationKey}>{item.name}</span>
                         </a>
                     </li>
                 ))
             }
         </ul>
 
+        <div class="flex items-center gap-2">
+            <select
+                id="language-select"
+                data-language-select
+                aria-label="Language"
+                class="h-8 rounded-full border border-steelblue/20 bg-aliceblue px-3 py-1 text-xs text-inkblack outline-none transition-colors hover:border-steelblue focus-visible:ring-2 focus-visible:ring-azureblue dark:border-aliceblue/20 dark:bg-balticblue dark:text-aliceblue dark:hover:border-aliceblue/40"
+            >
+                <option value="en" data-i18n="language.english">English</option>
+                <option value="es" data-i18n="language.spanish">Spanish</option>
+            </select>
+            <select
+                id="theme-select"
+                aria-label="Theme"
+                class="h-8 rounded-full border border-steelblue/20 bg-aliceblue px-3 py-1 text-xs text-inkblack outline-none transition-colors hover:border-steelblue focus-visible:ring-2 focus-visible:ring-azureblue dark:border-aliceblue/20 dark:bg-balticblue dark:text-aliceblue dark:hover:border-aliceblue/40"
+            >
+                <option value="system" data-i18n="theme.system">System</option>
+                <option value="light" data-i18n="theme.light">Light</option>
+                <option value="dark" data-i18n="theme.dark">Dark</option>
+            </select>
+        </div>
         <a
             class="flex h-8 w-28 items-center justify-center rounded-full bg-babyblueice px-2 py-1 text-md transition duration-500 ease-in-out delay-150 hover:bg-azureblue md:text-base dark:bg-smartblue dark:hover:bg-coolsteel"
             target="_blank"
@@ -38,7 +58,48 @@ const menuItem = [
             rel="noopener noreferrer"
             aria-label="Download CV (opens in new tab)"
         >
-            Download CV
+            <span data-i18n="nav.downloadCv">Download CV</span>
         </a>
     </nav>
 </header>
+
+<script>
+    const themeSelect = document.querySelector("#theme-select");
+    const languageSelect = document.querySelector("#language-select");
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+    const applyTheme = (theme) => {
+        document.documentElement.classList.toggle(
+            "dark",
+            theme === "dark" || (theme === "system" && mediaQuery.matches),
+        );
+    };
+
+    const savedTheme = localStorage.getItem("theme");
+    themeSelect.value = ["light", "dark", "system"].includes(savedTheme)
+        ? savedTheme
+        : "system";
+    languageSelect.value = localStorage.getItem("language") ||
+        (navigator.language.toLowerCase().startsWith("es") ? "es" : "en");
+
+    themeSelect.addEventListener("change", () => {
+        localStorage.setItem("theme", themeSelect.value);
+        applyTheme(themeSelect.value);
+    });
+
+    languageSelect.addEventListener("change", () => {
+        window.dispatchEvent(
+            new CustomEvent("language-change", { detail: languageSelect.value }),
+        );
+    });
+
+    mediaQuery.addEventListener("change", () => {
+        if ((localStorage.getItem("theme") || "system") === "system") {
+            applyTheme("system");
+        }
+    });
+
+    window.dispatchEvent(
+        new CustomEvent("language-change", { detail: languageSelect.value }),
+    );
+</script>

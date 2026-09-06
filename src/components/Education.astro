@@ -20,7 +20,7 @@ const education = [
             <span
                 class="bg-linear-to-r from-azureblue to-steelblue bg-clip-text text-transparent"
             >
-                Education
+                <span data-i18n="education.title">Education</span>
             </span>
         </h3>
 
@@ -37,7 +37,7 @@ const education = [
                                 {item.period}
                             </p>
                             <h4 class="text-base font-black text-inkblack dark:text-aliceblue">
-                                {item.degree}
+                                <span data-i18n={item.degree === "Bachelor of Information Technologies" ? "education.bachelor.degree" : "education.technician.degree"}>{item.degree}</span>
                             </h4>
                             <p class="text-base font-thin text-inkblack dark:text-aliceblue">
                                 {item.institution}
